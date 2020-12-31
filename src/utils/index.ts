@@ -1,18 +1,15 @@
-const getDay = (date: Date | number, dateOffset: number = 0) => {
-  let clonedDate = new Date(date);
+let errors = "";
 
-  clonedDate.setDate(clonedDate.getDate() + dateOffset);
-  return clonedDate;
-};
+export const validate = (value: string) => {
+  if (!value) {
+    errors = "Enter an item to add";
 
-export const getWeek = (date: number, dateOffset: number = 0) => {
-  const newDate = getDay(date, dateOffset);
+    return errors;
+  }
 
-  const day = newDate.getDay();
+  if (!/^[A-Z0-9]/i.test(value)) {
+    errors = "Enter a valid item descrition";
 
-  return {
-    date,
-    start: getDay(newDate, -day).getTime(),
-    end: getDay(newDate, 6 - day).getTime(),
-  };
+    return errors;
+  }
 };
