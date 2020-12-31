@@ -42,7 +42,6 @@ button {
 
 button {
   border: none;
-  outline: none;
   padding: 0;
   margin: 0;
   background: transparent;
@@ -70,6 +69,10 @@ li label {
   margin-right: auto;
 }
 
+p {
+  max-width: 60ch;
+}
+
 .tick {
   height: 1.5rem;
   width: 1.5rem;
@@ -92,4 +95,87 @@ li label {
 
 :checked + .tick svg {
   display: inline-block;
+}
+
+ul:not(:empty) + .empty-state {
+  display: none;
+}
+
+.empty-state {
+  border: 0.125rem solid;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+form input {
+  flex-grow: 1;
+}
+
+form > button {
+  flex-basis: auto;
+  margin-left: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.errors {
+  position: absolute;
+  top: 100%;
+}
+
+[type="text"] {
+  padding: 0.25rem;
+}
+
+input,
+[type="submit"] {
+  border: 0.125rem solid;
+  border-radius: 0.25rem;
+  font-size: inherit;
+  line-height: 1;
+}
+
+[type="submit"] {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem;
+  border: 2px solid #000;
+}
+
+input:focus,
+button:focus,
+[type="checkbox"]:focus + .tick {
+  outline: none;
+  box-shadow: 0 0 0 0.125rem #2a7fff;
+}
+
+::-webkit-input-placeholder {
+  color: #444;
+  font-style: italic;
+}
+
+::-moz-placeholder {
+  color: #444;
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  color: #444;
+  font-style: italic;
+}
+
+-moz-placeholder {
+  color: #444;
+  font-style: italic;
 }
