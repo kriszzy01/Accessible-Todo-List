@@ -2,11 +2,10 @@ import { RootState } from "../slices";
 
 export type { RootState };
 
-export type Ids = Array<number>;
+type Ids = Array<number>;
 
 export interface TodoItem {
-  id: number,
-  title: string;
+  id: number;
   description: string;
 }
 
