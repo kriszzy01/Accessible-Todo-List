@@ -126,9 +126,7 @@ const App: React.FC = () => {
               value={newItem}
               onChange={handleChange}
               //onBlur={() => setErrors(() => validate(newItem))} //If you choose validation on blur
-              aria-invalid={
-                !newItem || !/^[A-Z0-9]/i.test(newItem) ? "true" : "false"
-              }
+              aria-invalid={!newItem || !/^[A-Z0-9]/i.test(newItem)}
             />
             <span className="errors" role="status" aria-live="polite">
               {errors}
