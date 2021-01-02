@@ -17,24 +17,16 @@ const todo = createSlice({
       const filteredIds = state.ids.filter((id) => id !== payload);
       state.ids = filteredIds;
 
-      let filteredItems = {};
+      let filteredItems: Record<number, TodoItem> = {};
 
-      filteredIds.forEach((id) => {
-        filteredItems = {
-          ...filteredItems,
-          [id]: state.item[id],
-        };
-      });
+      filteredIds.forEach((id) => (filteredItems[id] = state.item[id]));
 
       state.item = filteredItems;
     },
     addItem(state, { payload }: PayloadAction<TodoItem>) {
       state.ids.push(payload.id);
 
-      state.item = {
-        ...state.item,
-        [payload.id]: payload,
-      };
+      state.item[payload.id] = payload;
     },
   },
 });
